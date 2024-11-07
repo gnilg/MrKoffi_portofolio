@@ -454,3 +454,11 @@ section .box {
     border: none;
 }
 
+.text-description {
+    color: #ffffff; /* Couleur blanche */
+    font-size: 1.2em; /* Ajustez la taille pour augmenter légèrement */
+    font-weight: 300; /* Donne une apparence plus légère */
+    line-height: 1.6; /* Améliore la lisibilité */
+}
+
+
