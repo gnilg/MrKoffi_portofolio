@@ -461,4 +461,49 @@ section .box {
     line-height: 1.6; /* Améliore la lisibilité */
 }
 
+.gallery {
+    padding: 20px;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.image {
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.image.tall {
+    height: 300px;
+}
+
+.image.wide {
+    grid-column: span 2; /* Une image large prend 2 colonnes */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+}
+
+ul li:hover {
+    color: #f1c40f;
+}
+
 
