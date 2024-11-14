@@ -297,7 +297,7 @@ section .box {
 .grid-wrapper .image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
@@ -309,10 +309,8 @@ section .box {
 
 .grid-wrapper .big {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 4;
 }
-
-
 
 
 
@@ -459,51 +457,57 @@ section .box {
     line-height: 1.6; /* Améliore la lisibilité */
 }
 
+/* Galerie */
+/* Styles de base de la galerie */
 .gallery {
     padding: 20px;
 }
 
 .grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grille responsive pour s'adapter aux écrans */
-    gap: 5px; /* Espacement entre les images */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
 }
 
 .grid-wrapper .image {
     position: relative;
     overflow: hidden;
-    border-radius: 10px; /* Ajout d'une bordure arrondie pour un effet visuel */
-    transition: transform 0.3s ease; /* Animation au survol */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
 .grid-wrapper .image:hover {
-    transform: scale(1.05); /* Zoom léger au survol */
+    transform: scale(1.05);
 }
 
 .grid-wrapper .image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Adapte l'image pour remplir l'espace sans déformation */
+    height: 600px; /* Plus grande hauteur pour les images */
+    object-fit: contain;
+    cursor: pointer; /* Indique que l'image est cliquable */
 }
 
-.grid-wrapper .wide {
-    grid-column: span 2; /* Une image large prend deux colonnes */
+/* Lightbox */
+.lightbox {
+    display: none; /* Masquée par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.grid-wrapper .tall {
-    
-    grid-row: span 2; /* Une image haute prend deux rangées */
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
 }
 
-.grid-wrapper .big {
-    grid-column: span 2;
-    grid-row: span 2; /* Une grande image prend deux colonnes et deux rangées */
+/* Afficher la lightbox lorsque active */
+.lightbox.active {
+    display: flex;
 }
-
-@media (max-width: 768px) {
-    .grid-wrapper {
-        grid-template-columns: 1fr; /* Affiche une seule colonne sur les petits écrans */
-    }
-}
-
-
